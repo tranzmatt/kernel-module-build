@@ -1,0 +1,3 @@
+[submodule "CH341SER_LINUX"]
+	path = CH341SER_LINUX
+	url = https://github.com/juliagoda/CH341SER

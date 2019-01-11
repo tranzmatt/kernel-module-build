@@ -1,0 +1,11 @@
+FROM resin/ts4900-python:3.6.4-slim-20180303
+
+RUN apt-get update && apt-get install -y curl wget build-essential libelf-dev awscli
+COPY . /usr/src/app
+WORKDIR /usr/src/app
+
+ENV VERSION '2.26.0+rev1.prod'
+RUN ./build.sh ts4900 $VERSION CH341SER_LINUX
+
+CMD ./run.sh
+
