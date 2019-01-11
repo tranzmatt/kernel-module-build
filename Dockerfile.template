@@ -1,5 +1,4 @@
-#resin/ts4900-python:3.6.4-slim-20180303
-FROM balenalib/%%RESIN_MACHINE_NAME%%-python:3.6.4-slim-20180303
+FROM balenalib/%%RESIN_MACHINE_NAME%%-python
 
 RUN apt-get update && apt-get install -y curl wget build-essential libelf-dev awscli
 COPY . /usr/src/app

@@ -1,10 +1,5 @@
 FROM balenalib/intel-nuc-debian:latest
 
-#ADD ./deb/ts4900 /media/dpkg
-#RUN echo "deb [trusted=yes] file:/media/dpkg ./" > /etc/apt/sources.list.d/headers.list
-#RUN apt-get update && apt-get -f -y install libzmq3-dev=${LIBZMQ_VERSION} \
-#    && rm -rf /media/dpkg && rm -f /etc/apt/sources.list.d/headers.list
-
 RUN apt-get update && apt-get install -y curl wget build-essential libelf-dev awscli
 COPY . /usr/src/app
 WORKDIR /usr/src/app
@@ -12,8 +7,5 @@ WORKDIR /usr/src/app
 ENV VERSION '2.29.0+rev1.prod'
 RUN ./build.sh intel-nuc $VERSION CH341SER_LINUX
 
-#COPY bin/qemu-arm-static-2.11.1 /usr/bin/qemu-arm-static
-
-#ENTRYPOINT ["/sbin/tini"]
 CMD ./run.sh
 
