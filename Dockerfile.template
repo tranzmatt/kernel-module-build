@@ -1,10 +1,10 @@
-FROM balenalib/%%RESIN_MACHINE_NAME%%-python
+FROM balenalib/%%BALENA_MACHINE_NAME%%-python
 
 RUN apt-get update && apt-get install -y curl wget build-essential libelf-dev awscli
 COPY . /usr/src/app
 WORKDIR /usr/src/app
 
-ENV VERSION '2.26.0+rev1.prod'
-RUN ./build.sh %%RESIN_MACHINE_NAME%% $VERSION CH341SER_LINUX
+ENV VERSION '2.29.0+rev1.prod'
+RUN ./build.sh %%BALENA_MACHINE_NAME%% $VERSION CH341SER_LINUX
 
 CMD ./run.sh
